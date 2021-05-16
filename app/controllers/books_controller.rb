@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  def homes
+  def index
   end
 
   def show

@@ -1,5 +1,7 @@
 <h1>Books</h1>
-<tabele>
+
+
+<table>
   <thead>
     <tr>
       <th>Title</th>
@@ -8,21 +10,30 @@
     </tr>
   </thead>
   
-    <% @books.each do |book| %>
   <tbody>
+   
     <tr>
-      <td>
-       <span><%= book.title %></span>
-       
-      </td>
+      <td>book.title</td>
+      <td>book.body</td>
       
-      <td>
-        <span><%= book.body %></span>
-      </td>
-      
-      <td><%= link_to "show", "/books/id" %></td>
-      <td><%= link_to "edit", "/books/id/edit" %></td>
-      <td><%= link_to "show", "/books/id" %></td>
+      <td><%= link_to "Show", "/books/id" %></td>
+      <td><%= link_to "Edit", "/books/id/edit" %></td>
+      <td><%= link_to "Destroy", "/books/id" %></td>
     </tr>
+  
   </tbody>
-</tabele>
+</table>
+
+<br>
+<h2>New Book</h2>
+<%= form_with model:@book, local:true do |f| %>
+
+<p>Title</h4>
+<%= f.text_field :title %>
+
+<h4>body</h4>
+<%= f.text_area :body %>
+<br>
+<%= f.submit 'Create Book' %>
+
+<% end %>

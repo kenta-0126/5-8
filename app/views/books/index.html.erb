@@ -1,2 +1,28 @@
 <h1>Books</h1>
-
+<tabele>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th "colspan=3"></th>
+    </tr>
+  </thead>
+  
+    <% @books.each do |book| %>
+  <tbody>
+    <tr>
+      <td>
+       <span><%= book.title %></span>
+       
+      </td>
+      
+      <td>
+        <span><%= book.body %></span>
+      </td>
+      
+      <td><%= link_to "show", "/books/id" %></td>
+      <td><%= link_to "edit", "/books/id/edit" %></td>
+      <td><%= link_to "show", "/books/id" %></td>
+    </tr>
+  </tbody>
+</tabele>

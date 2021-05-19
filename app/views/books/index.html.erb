@@ -18,7 +18,7 @@
       
       <td><%= link_to "Show", "/books/id" %></td>
       <td><%= link_to "Edit", "/books/id/edit" %></td>
-      <td><%= link_to "Destroy", method: :delete, "本当に削除しますか？" %></td>
+      <td><%= link_to "Destroy", book_path(@book), method: :delete %></td>
     </tr>
    <% end %>
   </tbody>

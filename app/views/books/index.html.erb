@@ -11,16 +11,16 @@
   </thead>
   
   <tbody>
-   
+   <% @books.each do |book| %>
     <tr>
-      <td>book.title</td>
-      <td>book.body</td>
+      <td><%= book.title %></td>
+      <td><%= book.body %></td>
       
       <td><%= link_to "Show", "/books/id" %></td>
       <td><%= link_to "Edit", "/books/id/edit" %></td>
-      <td><%= link_to "Destroy", "/books/id" %></td>
+      <td><%= link_to "Destroy", method: :delete, "本当に削除しますか？" %></td>
     </tr>
-  
+   <% end %>
   </tbody>
 </table>
 
@@ -33,6 +33,7 @@
 
 <h4>body</h4>
 <%= f.text_area :body %>
+
 <br>
 <%= f.submit 'Create Book' %>
 

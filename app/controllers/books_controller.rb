@@ -10,7 +10,7 @@ class BooksController < ApplicationController
   def create
     book = Book.new(book_params)
     book.save
-    redirect_to :action => 'show'
+    redirect_to books_path
   end
   
   def show
@@ -35,7 +35,7 @@ class BooksController < ApplicationController
   
   private
   def book_params
-    params.require(:book).permit(:title, :body)
+    params.reqcuire(:book).permit(:title, :body)
   end
   
 end

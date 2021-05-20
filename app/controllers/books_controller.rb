@@ -10,12 +10,15 @@ class BooksController < ApplicationController
 
   def create
     book = Book.new(book_params)
+    require 'ruby-debug'; debugger; true;
     book.save
+    require 'ruby-debug'; debugger; true;
     redirect_to books_path
   end
 
   def show
     @book = Book.find(params[:id])
+    
   end
 
   def edit

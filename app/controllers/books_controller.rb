@@ -10,10 +10,13 @@ class BooksController < ApplicationController
 
   def create
     book = Book.new(book_params)
-    require 'ruby-debug'; debugger; true;
-    book.save
-    require 'ruby-debug'; debugger; true;
-    redirect_to books_path
+    if book.save
+      flash[:notice] = "Book was successfully created."
+      redirect_to book_path(book.id)
+    else
+      render action: :new
+    end
+    
   end
 
   def show
@@ -27,8 +30,12 @@ class BooksController < ApplicationController
 
   def update
     book = Book.find(params[:id])
-    book.update(book_params)
-    redirect_to books_path(book.id)
+    if book.update(book_params)
+       flash[:notice] = "Book was successfully updated."
+       redirect_to book_path(book.id)
+    else
+      render action: :edit
+    end
   end
 
   def destroy
